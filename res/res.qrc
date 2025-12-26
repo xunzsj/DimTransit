@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>ico/logo.ico</file>
+        <file>ico/SoftWare_ico.jpg</file>
+        <file>ico/播放 .svg</file>
+    </qresource>
+</RCC>
