@@ -1,5 +1,6 @@
 QT       += core gui
-
+QT       +=sql
+QT       +=axcontainer
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -21,6 +22,8 @@ msvc
     DESTDIR=$$PWD/bin/msvc
 }
 include($$PWD/src/src.pri)
+include($$PWD/lib/lib.pri)
 
-RC_ICONS=res/ico/logo.ico
+RC_FILE+=res/ico/logo.rc
+
 RESOURCES =$$PWD/res/res.qrc
