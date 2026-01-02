@@ -641,4 +641,6 @@ void DimReport::fillProductInfo(QAxObject *doc)
     WordReportHelper::fillBookmark(doc, "Customer", m_productParam.customer);
     WordReportHelper::fillBookmark(doc, "MaterialGrade", m_productParam.materialGrade);
     WordReportHelper::fillBookmark(doc, "ProductSerialNo", m_productParam.productSerialNo);
+    WordReportHelper::fillBookmark(doc, "reviewername", m_productParam.reviewName);
+    WordReportHelper::fillBookmark(doc, "Inspector", m_productParam.Inspector);
 }

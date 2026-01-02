@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>ico/logo.ico</file>
         <file>ico/SoftWare_ico.jpg</file>
+        <file>qss/main.qss</file>
+        <file>qss/dbset.qss</file>
     </qresource>
 </RCC>

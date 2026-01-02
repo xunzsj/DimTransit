@@ -61,6 +61,8 @@ public:
         QString productSerialNo; // 产品序列号
         QString MeasurementTool;
         QString MeasurementNo;
+        QString reviewName;
+        QString Inspector;
     };
 
     struct InspectionParam {
