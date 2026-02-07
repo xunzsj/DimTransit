@@ -21,6 +21,7 @@ msvc
     QMAKE_CXXFLAGS +=/utf-8
     DESTDIR=$$PWD/bin/msvc
 }
+#DESTDIR=$$PWD/bin/mingw
 include($$PWD/src/src.pri)
 include($$PWD/lib/lib.pri)
 

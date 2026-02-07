@@ -58,8 +58,8 @@ void MainWindow::InitCtrl()
     ui->dbIPBox->addItems(list);
     syncButtonStateWithDbStatus();
 
-    //连接数据库
-    on_dbConnectBt_clicked();
+//    //连接数据库
+//    on_dbConnectBt_clicked();
     //根据工作令号-查询产品数据
     QueryProuductData();
 
@@ -174,18 +174,33 @@ bool MainWindow::QueryProuductData()
 
 void MainWindow::GetProductParams(DimReport::ProductParam *params)
 {
+
     if(params)
     {
-        QString currentJobOrder=ui->joborderCombox->currentText();
+        if(!SqlService::Get().isAvailable()){
+            params->jobOrder = "数据库未连接";
+            params->materialGrade =  "Null";
+            params->customer = "Null";
+            params->productSerialNo = "Null";
+            params->MeasurementTool = "Null";
+            params->MeasurementNo = "Null";
+            params->reviewName="Null";
+            params->Inspector="Null";
+        }
+        else
+        {
+            QString currentJobOrder=ui->joborderCombox->currentText();
 
-        params->jobOrder = m_jobOrderToRecordMap[currentJobOrder].value("job_order_no").toString();
-        params->materialGrade =  m_jobOrderToRecordMap[currentJobOrder].value("material_grade").toString();
-        params->customer = m_jobOrderToRecordMap[currentJobOrder].value("customer_po").toString();
-        params->productSerialNo = m_jobOrderToRecordMap[currentJobOrder].value("product_serial_no").toString();
-        params->MeasurementTool = m_jobOrderToRecordMap[currentJobOrder].value("tool_name").toString();
-        params->MeasurementNo = m_jobOrderToRecordMap[currentJobOrder].value("tool_no").toString();
-        params->reviewName=m_jobOrderToRecordMap[currentJobOrder].value("reviewer_name").toString();
-        params->Inspector=m_jobOrderToRecordMap[currentJobOrder].value("editor_name").toString();
+            params->jobOrder = m_jobOrderToRecordMap[currentJobOrder].value("job_order_no").toString();
+            params->materialGrade =  m_jobOrderToRecordMap[currentJobOrder].value("material_grade").toString();
+            params->customer = m_jobOrderToRecordMap[currentJobOrder].value("customer_po").toString();
+            params->productSerialNo = m_jobOrderToRecordMap[currentJobOrder].value("product_serial_no").toString();
+            params->MeasurementTool = m_jobOrderToRecordMap[currentJobOrder].value("tool_name").toString();
+            params->MeasurementNo = m_jobOrderToRecordMap[currentJobOrder].value("tool_no").toString();
+            params->reviewName=m_jobOrderToRecordMap[currentJobOrder].value("reviewer_name").toString();
+            params->Inspector=m_jobOrderToRecordMap[currentJobOrder].value("editor_name").toString();
+        }
+
     }
     else
     {

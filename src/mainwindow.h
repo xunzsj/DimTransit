@@ -52,7 +52,7 @@ private:
     void LoadReportType(const QString &filePath);
     QList<DimReport::InspectionParam> buildParamMapFromCsv();
 private:
-      QMap<QString, QVariantMap> m_jobOrderToRecordMap;
+    QMap<QString, QVariantMap> m_jobOrderToRecordMap;
 
 };
 
